@@ -45,7 +45,7 @@ INSERT INTO "Band" ("Id", "Name", "CountryOfOrigin", "NumberOfMembers", "Website
 VALUES (2, 'Matchbox 20', 'US', '4', 'www.mb20.com', 'Alt Rock', 'True', 'Rob Thomas');
 
 INSERT INTO "Band" ("Id", "Name", "CountryOfOrigin", "NumberOfMembers", "Website", "Genre", "IsSigned", "ContactName")
-VALUES (3, 'The Starting Line', 'US', '4', 'www.thestartingline.com', 'Punk/Emo', 'No', 'Ken Vasoli');
+VALUES (3, 'The Starting Line', 'US', '4', 'www.thestartingline.com', 'Punk/Emo', 'False', 'Ken Vasoli');
 
 
 //Adding Albums
