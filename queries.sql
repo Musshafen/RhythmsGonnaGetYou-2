@@ -103,3 +103,7 @@ SELECT * FROM "Album" WHERE "BandId" = 1;
 
 //View all albums and associated songs ordered by ReleaseDate
 SELECT * FROM "Album" INNER JOIN "Songs" ORDER BY "ReleaseDate";
+
+//View all bands that are IsSigned
+SELECT * FROM "Band" WHERE "IsSigned" = true;
+
