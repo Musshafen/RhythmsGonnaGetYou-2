@@ -61,6 +61,7 @@ VALUES (3, 'Say It Like You Mean It', 'False', '2002', 3);
 
 
 //Adding Songs
+
 INSERT INTO "Song" ("Id", "TrackNumber", "Title", "Duration", "AlbumId")
 VALUES (1, "2" "Omaha", "3:39", 1);
 
@@ -69,7 +70,6 @@ VALUES (2, "3", "Mr. Jones", "4:33", 1 );
 
 INSERT INTO "Song" ("Id", "TrackNumber", "Title", "Duration", "AlbumId")
 VALUES (3, "5", "Anna Begins", "4:31", 1);
-
 
 INSERT INTO "Song" ("Id", "TrackNumber", "Title", "Duration", "AlbumId")
 VALUES (4, "3", "3 am", "3:47", 2);
@@ -88,4 +88,10 @@ VALUES (8, "5", "A Goodnight's Sleep", "4:23", 3);
 
 INSERT INTO "Song" ("Id", "TrackNumber", "Title", "Duration", "AlbumId")
 VALUES (9, "9", "Decisions, Decisions", "3:51", 3);
+
+//View all Bands
+
+SELECT * FROM "Band";
+
+
 
