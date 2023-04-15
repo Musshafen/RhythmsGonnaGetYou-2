@@ -95,4 +95,7 @@ SELECT * FROM "Band";
 //Let band go
 UPDATE "Band" SET "IsSigned" = false WHERE "Id" = 1;
 
+//Resign a band
+UPDATE "Band" SET "IsSigned" = true WHERE "Id" = 1;
+
 
