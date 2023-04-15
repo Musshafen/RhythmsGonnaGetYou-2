@@ -98,4 +98,5 @@ UPDATE "Band" SET "IsSigned" = false WHERE "Id" = 1;
 //Resign a band
 UPDATE "Band" SET "IsSigned" = true WHERE "Id" = 1;
 
-
+//Given a band name, view all Albums
+SELECT * FROM "Album" WHERE "BandId" = 1;
