@@ -107,3 +107,5 @@ SELECT * FROM "Album" INNER JOIN "Songs" ORDER BY "ReleaseDate";
 //View all bands that are IsSigned
 SELECT * FROM "Band" WHERE "IsSigned" = true;
 
+//VIew all bands that are not IsSigned
+SELECT * FROM "Band" WHERE "IsSigned" = false;
