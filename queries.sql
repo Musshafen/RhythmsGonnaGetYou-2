@@ -90,8 +90,9 @@ INSERT INTO "Song" ("Id", "TrackNumber", "Title", "Duration", "AlbumId")
 VALUES (9, "9", "Decisions, Decisions", "3:51", 3);
 
 //View all Bands
-
 SELECT * FROM "Band";
 
+//Let band go
+UPDATE "Band" SET "IsSigned" = false WHERE "Id" = 1;
 
 
