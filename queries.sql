@@ -7,7 +7,7 @@ pgcli RhythmsGonnaGetYouDb
 
 //Creating Tables
 
-CREATE TABLE "Band" (
+CREATE TABLE "Bands" (
 "Id"                   SERIAL PRIMARY KEY,
 "Name"                 TEXT NOT NULL,
 "CountryOfOrigin"      TEXT,
@@ -19,93 +19,93 @@ CREATE TABLE "Band" (
 
 );
 
-CREATE TABLE "Album" (
+CREATE TABLE "Albums" (
 "Id"           SERIAL PRIMARY KEY,
 "Title"        TEXT,
 "IsExplicit"   BOOLEAN,
 "ReleaseDate"  TEXT,
-"BandId" INT NULL REFERENCES "Band" ("Id")
+"BandsId" INT NULL REFERENCES "Bands" ("Id")
 );
 
 
-CREATE TABLE "Song" (
+CREATE TABLE "Songs" (
 "Id "          SERIAL PRIMARY KEY,
 "TrackNumber"  INT,
 "Title"        TEXT NOT NULL, 
 "Duration"     TEXT,
-"AlbumId"     INT NULL REFERENCES "Album" ("Id")
+"AlbumsId"     INT NULL REFERENCES "Albums" ("Id")
 );
 
 //Adding Bands
 
-INSERT INTO "Band" ("Id", "Name", "CountryOfOrigin", "NumberOfMembers", "Website", "Genre", "IsSigned", "ContactName")
+INSERT INTO "Bands" ("Id", "Name", "CountryOfOrigin", "NumberOfMembers", "Website", "Genre", "IsSigned", "ContactName")
 VALUES (1, 'Counting Crows', 'US', '7', 'www.countingcrows.com', 'Alt Rock', 'True', 'Adam Duritz');
 
-INSERT INTO "Band" ("Id", "Name", "CountryOfOrigin", "NumberOfMembers", "Website", "Genre", "IsSigned", "ContactName")
+INSERT INTO "Bands" ("Id", "Name", "CountryOfOrigin", "NumberOfMembers", "Website", "Genre", "IsSigned", "ContactName")
 VALUES (2, 'Matchbox 20', 'US', '4', 'www.mb20.com', 'Alt Rock', 'True', 'Rob Thomas');
 
-INSERT INTO "Band" ("Id", "Name", "CountryOfOrigin", "NumberOfMembers", "Website", "Genre", "IsSigned", "ContactName")
+INSERT INTO "Bands" ("Id", "Name", "CountryOfOrigin", "NumberOfMembers", "Website", "Genre", "IsSigned", "ContactName")
 VALUES (3, 'The Starting Line', 'US', '4', 'www.thestartingline.com', 'Punk/Emo', 'False', 'Ken Vasoli');
 
 
 //Adding Albums
 
-INSERT INTO "Album" ("Id", "Title", "IsExplicit", "ReleaseDate", "BandId")
+INSERT INTO "Albums" ("Id", "Title", "IsExplicit", "ReleaseDate", "BandsId")
 VALUES (1, 'August and Everything After', 'False', '1993', 1);
 
-INSERT INTO "Album" ("Id", "Title", "IsExplicit", "ReleaseDate", "BandId")
+INSERT INTO "Albums" ("Id", "Title", "IsExplicit", "ReleaseDate", "BandsId")
 VALUES (2, 'Yourself or Someone Like You', 'False', '1996', 2);
 
-INSERT INTO "Album" ("Id", "Title", "IsExplicit", "ReleaseDate", "BandId")
+INSERT INTO "Albums" ("Id", "Title", "IsExplicit", "ReleaseDate", "BandsId")
 VALUES (3, 'Say It Like You Mean It', 'False', '2002', 3);
 
 
 //Adding Songs
 
-INSERT INTO "Song" ("Id", "TrackNumber", "Title", "Duration", "AlbumId")
-VALUES (1, "2" "Omaha", "3:39", 1);
+INSERT INTO "Songs" ("TrackNumber", "Title", "Duration", "AlbumsId")
+VALUES ('2', 'Omaha', '3:39', 1);
 
-INSERT INTO "Song" ("Id", "TrackNumber", "Title", "Duration", "AlbumId")
-VALUES (2, "3", "Mr. Jones", "4:33", 1 );
+INSERT INTO "Songs" ("TrackNumber", "Title", "Duration", "AlbumsId")
+VALUES ('3', 'Mr. Jones', '4:33', 1 );
 
-INSERT INTO "Song" ("Id", "TrackNumber", "Title", "Duration", "AlbumId")
-VALUES (3, "5", "Anna Begins", "4:31", 1);
+INSERT INTO "Songs" ("TrackNumber", "Title", "Duration", "AlbumsId")
+VALUES ('5', 'Anna Begin', '4:31', 1);
 
-INSERT INTO "Song" ("Id", "TrackNumber", "Title", "Duration", "AlbumId")
-VALUES (4, "3", "3 am", "3:47", 2);
+INSERT INTO "Songs" ("TrackNumber", "Title", "Duration", "AlbumsId")
+VALUES ('3', '3 am', '3:47', 2);
 
-INSERT INTO "Song" ("Id", "TrackNumber", "Title", "Duration", "AlbumId")
-VALUES (5, "4", "Push", "3:59", 2);
+INSERT INTO "Songs" ("TrackNumber", "Title", "Duration", "AlbumsId")
+VALUES ('4', 'Push', '3:59', 2);
 
-INSERT INTO "Song" ("Id", "TrackNumber", "Title", "Duration", "AlbumId")
-VALUES (6, "12", "Hang", "3:47", 2);
+INSERT INTO "Songs" ("TrackNumber", "Title", "Duration", "AlbumsId")
+VALUES ('12', 'Hang', '3:47', 2);
 
-INSERT INTO "Song" ("Id", "TrackNumber", "Title", "Duration", "AlbumId")
-VALUES (7, "4", "The Best of Me", "4:18", 3);
+INSERT INTO "Songs" ("TrackNumber", "Title", "Duration", "AlbumsId")
+VALUES ('4', 'The Best of Me', '4:18', 3);
 
-INSERT INTO "Song" ("Id", "TrackNumber", "Title", "Duration", "AlbumId")
-VALUES (8, "5", "A Goodnight's Sleep", "4:23", 3);
+INSERT INTO "Songs" ("TrackNumber", "Title", "Duration", "AlbumsId")
+VALUES ('5', 'A Goodnights Sleep', '4:23', 3);
 
-INSERT INTO "Song" ("Id", "TrackNumber", "Title", "Duration", "AlbumId")
-VALUES (9, "9", "Decisions, Decisions", "3:51", 3);
+INSERT INTO "Songs" ("TrackNumber", "Title", "Duration", "AlbumsId")
+VALUES ('9', 'Decisions, Decisions', '3:51', 3);
 
 //View all Bands
-SELECT * FROM "Band";
+SELECT * FROM "Bands";
 
 //Let band go
-UPDATE "Band" SET "IsSigned" = false WHERE "Id" = 1;
+UPDATE "Bands" SET "IsSigned" = false WHERE "Id" = 1;
 
 //Resign a band
-UPDATE "Band" SET "IsSigned" = true WHERE "Id" = 1;
+UPDATE "Bands" SET "IsSigned" = true WHERE "Id" = 1;
 
 //Given a band name, view all Albums
-SELECT * FROM "Album" WHERE "BandId" = 1;
+SELECT * FROM "Albums" WHERE "BandsId" = 1;
 
-//View all albums and associated songs ordered by ReleaseDate
-SELECT * FROM "Album" INNER JOIN "Songs" ORDER BY "ReleaseDate";
+*******//View all albums and associated songs ordered by ReleaseDate
+SELECT * FROM "Albums" INNER JOIN "Songs" ORDER BY "ReleaseDate";
 
 //View all bands that are IsSigned
-SELECT * FROM "Band" WHERE "IsSigned" = true;
+SELECT * FROM "Bands" WHERE "IsSigned" = true;
 
 //VIew all bands that are not IsSigned
-SELECT * FROM "Band" WHERE "IsSigned" = false;
+SELECT * FROM "Bands" WHERE "IsSigned" = false;
