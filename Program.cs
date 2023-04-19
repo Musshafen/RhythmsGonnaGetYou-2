@@ -17,6 +17,13 @@ namespace RhythmsGonnaGetYou
             Console.WriteLine();
 
         }
+        public static string PromptForString(string prompt)
+        {
+            Console.Write(prompt);
+            var userInput = Console.ReadLine().ToUpper();
+
+            return userInput;
+        }
 
 
         static void Main(string[] args)
