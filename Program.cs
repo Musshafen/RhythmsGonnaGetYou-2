@@ -24,7 +24,7 @@ namespace RhythmsGonnaGetYou
 
             return userInput;
         }
-         public static int PromptForInteger(string prompt)
+        public static int PromptForInteger(string prompt)
         {
             Console.Write(prompt);
             int userInput;
@@ -40,7 +40,18 @@ namespace RhythmsGonnaGetYou
                 return 0;
             }
         }
+        public static void NoMatchFound()
+        {
 
+            Console.WriteLine("No match found");
+        }
+        static Band SearchForBandName(RhythmsGonnaGetYouContext context)
+        {
+            var bandName = PromptForString("Band name: \n").ToUpper();
+            var foundBand = context.Bands.First(band => band.Name.ToUpper().Contains(bandName.ToUpper()));
+            Console.WriteLine("");
+            return foundBand;
+        }
 
         static void Main(string[] args)
         {
