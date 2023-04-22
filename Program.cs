@@ -77,7 +77,15 @@ namespace RhythmsGonnaGetYou
         public int BandId { get; set; }
         public Band Band { get; set; }
     }
-
+class Song
+    {
+        public int Id { get; set; }
+        public int TrackNumber { get; set; }
+        public string Title { get; set; }
+        public decimal Duration { get; set; }
+        public int AlbumId { get; set; }
+        public Album Album { get; set; }
+    }
 
 
     class Program
