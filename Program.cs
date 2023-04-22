@@ -191,6 +191,17 @@ namespace RhythmsGonnaGetYou
                         Console.WriteLine($"{band.Name} - {band.Id} -{band.IsSigned}");
                     }
                 }
+
+                else if (choice == "VSB")
+                {
+                    var viewBands = context.Bands.OrderBy(b => b.Name);
+                    var signedBands = context.Bands.Where(sb => sb.IsSigned == "yes");
+                    Console.WriteLine("View Signed Bands");
+                    foreach (var band in signedBands)
+                    {
+                        Console.WriteLine($"{band.Name} - {band.Id} -{band.IsSigned}");
+                    }
+                }
             }
         }
     }
