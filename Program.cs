@@ -66,6 +66,18 @@ namespace RhythmsGonnaGetYou
         public List<Album> Albums { get; set; }
 
     }
+    class Album
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string IsExplicit { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public List<Song> Songs { get; set; }
+        // public List<Band> Bands { get; set; }
+        public int BandId { get; set; }
+        public Band Band { get; set; }
+    }
+
 
 
     class Program
