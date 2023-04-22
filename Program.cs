@@ -113,10 +113,19 @@ namespace RhythmsGonnaGetYou
                     Console.WriteLine("Invalid");
                     return 0;
                 }
+            }
+            var menuOptions = new MenuOptions();
+            var context = new RhythmsGonnaGetYouContext();
+            var bandCollection = context.Albums.Include(album => album.Songs).Include(album => album.Band);
 
-
-                Console.WriteLine("Welcome");
-
+            var isRunning = true;
+            while (isRunning)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Welcome to our Record Label");
+                Console.WriteLine();
+                Console.WriteLine("What would you like to do?");
+                Console.Write("(AB): Add Band (AA): Add Album (VB): View Bands (VA): View Albums (VBA): View Band Albums (SB): Un/Sign a Band (VSB): View Signed Bands (NSB): View Not Signed Bands (Q): Quit ");
 
 
 
@@ -124,3 +133,5 @@ namespace RhythmsGonnaGetYou
             }
         }
     }
+}
+
