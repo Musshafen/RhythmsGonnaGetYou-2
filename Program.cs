@@ -212,6 +212,16 @@ namespace RhythmsGonnaGetYou
                         Console.WriteLine($"{band.Name} - {band.Id} -{band.IsSigned}");
                     }
                 }
+                else if (choice == "VA")
+                {
+                    var viewAlbums = context.Albums.OrderBy(alb => alb.ReleaseDate);
+                    Console.WriteLine("View all Albums by Release Date");
+
+                    foreach (var album in viewAlbums)
+                    {
+                        Console.WriteLine($"{album.Title} - {album.ReleaseDate}");
+                    }
+                }
 
             }
         }
