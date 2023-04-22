@@ -93,16 +93,34 @@ namespace RhythmsGonnaGetYou
 
         static void Main(string[] args)
         {
+            static string PromptForString(string prompt)
+            {
+                Console.Write(prompt);
+                var userInput = Console.ReadLine();
+                return userInput;
+            }
+            static int PromptForInteger(string prompt)
+            {
+                Console.Write(prompt);
+                int userInput;
+                var intUserInput = Int32.TryParse(Console.ReadLine(), out userInput);
+                if (intUserInput)
+                {
+                    return userInput;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid");
+                    return 0;
+                }
+
+
+                Console.WriteLine("Welcome");
 
 
 
 
-            Console.WriteLine("Welcome");
 
-
-
-
-
+            }
         }
     }
-}
