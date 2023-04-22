@@ -59,7 +59,7 @@ namespace RhythmsGonnaGetYou
         public string CountryOfOrigin { get; set; }
         public int NumberOfMembers { get; set; }
         public string Website { get; set; }
-        public string Style { get; set; }
+        public string Genre { get; set; }
         public string IsSigned { get; set; }
         public string ContactName { get; set; }
         public List<Album> Albums { get; set; }
@@ -139,7 +139,7 @@ namespace RhythmsGonnaGetYou
                     band.CountryOfOrigin = PromptForString("From: ");
                     band.NumberOfMembers = PromptForInteger("How many members: ");
                     band.Website = PromptForString("Website: ");
-                    band.Style = PromptForString("Music Genre: ");
+                    band.Genre = PromptForString("Music Genre: ");
                     band.IsSigned = PromptForString("Signed: ");
                     band.ContactName = PromptForString("Contact Name: ");
                     context.Bands.Add(band);
