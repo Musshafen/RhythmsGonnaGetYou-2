@@ -62,7 +62,6 @@ namespace RhythmsGonnaGetYou
         public string Style { get; set; }
         public string IsSigned { get; set; }
         public string ContactName { get; set; }
-        public string ContactPhoneNumber { get; set; }
         public List<Album> Albums { get; set; }
 
     }
@@ -125,10 +124,44 @@ namespace RhythmsGonnaGetYou
                 Console.WriteLine("Welcome to our Record Label");
                 Console.WriteLine();
                 Console.WriteLine("What would you like to do?");
-                Console.Write("(AB): Add Band (AA): Add Album (VB): View Bands (VA): View Albums (VBA): View Band Albums (SB): Un/Sign a Band (VSB): View Signed Bands (NSB): View Not Signed Bands (Q): Quit ");
+                Console.Write("(AB): Add Band\n(AA): Add Album\n(VB): View Bands\n(VA): View Albums\n(VBA): View Band Albums\n(SB): Un/Sign a Band\n(VSB): View Signed Bands\n(NSB): View Not Signed Bands\n(Q): Quit ");
 
+                var choice = Console.ReadLine().ToUpper();
+                if (choice == "AB")
+                {
+                    var newAlbum = new Album();
+                    var band = new Band();
 
+                    // Add Band
+                    Console.WriteLine("Adding a Band");
+                    band.Name = PromptForString("Band name: ");
+                    band.CountryOfOrigin = PromptForString("From: ");
+                    band.NumberOfMembers = PromptForInteger("How many members: ");
+                    band.Website = PromptForString("Website: ");
+                    band.Style = PromptForString("Music Genre: ");
+                    band.IsSigned = PromptForString("Signed: ");
+                    band.ContactName = PromptForString("Contact Name: ");
+                    context.Bands.Add(band);
+                    context.SaveChanges();
 
+                }
+                else if (choice == "AA")
+                {
+                    var viewBands = context.Bands.OrderBy(b => b.Name);
+                    Console.WriteLine("Which Band #: ");
+
+                    foreach (var band in viewBands)
+                    {
+                        Console.WriteLine($"{band.Name} - {band.Id}");
+                    }
+                    var bandById = int.Parse(Console.ReadLine());
+                    Console.WriteLine($"Adding an Album to {bandById}");
+                    var albumToAdd = context.Bands.First(alb => alb.Id == bandById);
+                    var newAlbumTitle = PromptForString("Album Title: ");
+                    var newAlbumIsExplicit = PromptForString("Is it Explicit?: ");
+                    menuOptions.AddAlbum(newAlbumTitle, bandById, newAlbumIsExplicit);
+                    context.SaveChanges();
+                }
 
             }
         }
