@@ -222,6 +222,22 @@ namespace RhythmsGonnaGetYou
                         Console.WriteLine($"{album.Title} - {album.ReleaseDate}");
                     }
                 }
+                else if (choice == "VBA")
+                {
+                    var viewBands = context.Bands.OrderBy(b => b.Name);
+                    Console.WriteLine("Which Band #: ");
+
+                    foreach (var band in viewBands)
+                    {
+                        Console.WriteLine($"{band.Name} - {band.Id}");
+                    }
+                    var bandById = int.Parse(Console.ReadLine());
+                    var albums = context.Albums.Where(alb => bandById == alb.BandId);
+                    foreach (var album in albums)
+                    {
+                        Console.WriteLine($"{album.Title}");
+                    }
+                }
 
             }
         }
