@@ -238,6 +238,27 @@ namespace RhythmsGonnaGetYou
                         Console.WriteLine($"{album.Title}");
                     }
                 }
+                else if (choice == "SB")
+                {
+                    var bands = context.Bands.OrderBy(b => b.Name);
+                    foreach (var band in bands)
+                    {
+                        Console.WriteLine($"{band.Id} - {band.Name}");
+                    }
+                    var bandById = int.Parse(Console.ReadLine());
+                    var signBand = context.Bands.First(s => s.Id == bandById);
+                    var isSigned = "";
+                    if (isSigned == "yes")
+                    {
+                        signBand.IsSigned = "no";
+                    }
+                    else
+                    {
+                        signBand.IsSigned = "yes";
+                    }
+                    context.SaveChanges();
+                }
+
 
             }
         }
