@@ -258,7 +258,10 @@ namespace RhythmsGonnaGetYou
                     }
                     context.SaveChanges();
                 }
-
+                else
+                {
+                    isRunning = false;
+                }
 
             }
         }
