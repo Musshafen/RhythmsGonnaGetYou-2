@@ -9,8 +9,8 @@ namespace RhythmsGonnaGetYou
     class RhythmsGonnaGetYouContext : DbContext
     {
         public DbSet<Band> Bands { get; set; }
-         public DbSet<Album> Albums { get; set; }
-         public DbSet<Song> Songs { get; set; }
+        public DbSet<Album> Albums { get; set; }
+        public DbSet<Song> Songs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -21,7 +21,7 @@ namespace RhythmsGonnaGetYou
         }
     }
 
-     class MenuOptions
+    class MenuOptions
     {
         public void AddAlbum(string albumTitle, int bandId, string isExplicit)
         {
@@ -77,7 +77,7 @@ namespace RhythmsGonnaGetYou
         public int BandId { get; set; }
         public Band Band { get; set; }
     }
-class Song
+    class Song
     {
         public int Id { get; set; }
         public int TrackNumber { get; set; }
