@@ -14,7 +14,7 @@ namespace RhythmsGonnaGetYou
    
 
 
-                
+                Console.WriteLine("Welcome");
 
           
 
