@@ -162,6 +162,23 @@ namespace RhythmsGonnaGetYou
                     menuOptions.AddAlbum(newAlbumTitle, bandById, newAlbumIsExplicit);
                     context.SaveChanges();
                 }
+                else if (choice == "AS")
+                {
+                    var viewAlbums = context.Albums.OrderBy(a => a.Title);
+                    Console.WriteLine("Which Album #: ");
+                    foreach (var album in viewAlbums)
+                    {
+                        Console.WriteLine($"{album.Title} - {album.Id}");
+                    }
+                    var albumById = int.Parse(Console.ReadLine());
+                    Console.WriteLine($"Adding songs to {albumById}");
+                    var songToAdd = context.Albums.First(alb => alb.Id == albumById);
+                    var newTrackNumber = PromptForInteger("What's the track number?: ");
+                    var newSongTitle = PromptForString("Song Title: ");
+                    var newDuration = PromptForInteger("How long is it?: ");
+                    menuOptions.AddSong(newTrackNumber, newSongTitle, newDuration, albumById);
+                    context.SaveChanges();
+                }
 
             }
         }
