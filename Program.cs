@@ -125,6 +125,7 @@ namespace RhythmsGonnaGetYou
                 Console.WriteLine();
                 Console.WriteLine("What would you like to do?");
                 Console.Write("(AB): Add Band\n(AA): Add Album\n(VB): View Bands\n(VA): View Albums\n(VBA): View Band Albums\n(SB): Un/Sign a Band\n(VSB): View Signed Bands\n(NSB): View Not Signed Bands\n(Q): Quit ");
+                Console.WriteLine();
 
                 var choice = Console.ReadLine().ToUpper();
                 if (choice == "AB")
@@ -180,6 +181,16 @@ namespace RhythmsGonnaGetYou
                     context.SaveChanges();
                 }
 
+                else if (choice == "VB")
+                {
+                    var viewBands = context.Bands.OrderBy(b => b.Name);
+                    Console.WriteLine("View All Bands");
+
+                    foreach (var band in viewBands)
+                    {
+                        Console.WriteLine($"{band.Name} - {band.Id} -{band.IsSigned}");
+                    }
+                }
             }
         }
     }
